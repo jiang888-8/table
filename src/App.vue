@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <jd-table>
+      <template v-slot:name='scope'>
+        <h3>{{scope.row}}</h3>
+      </template>
+      <template v-slot:age='scope'>
+        <h3>{{scope.row}}</h3>
+      </template>
+      <template v-slot:img='scope'>
+        <img :src="scope.row" alt="">
+      </template>
+    </jd-table>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import jdTable from './components/jd_table.vue'
 export default {
-  name: 'App',
+  data () {
+    return {
+
+    }
+  },
+
   components: {
-    HelloWorld
+    jdTable
+  },
+
+  created () {
+
+  },
+
+  methods: {
+
   }
 }
 </script>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
